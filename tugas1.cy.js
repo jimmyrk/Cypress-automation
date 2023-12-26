@@ -1,4 +1,3 @@
-
 /// <reference types="cypress" />
 
 // describe('Login using invalid account', () => {
@@ -27,16 +26,16 @@ describe('Login using Accepted account', () => {
         cy.visit('https://www.saucedemo.com/v1/index.html', { timeout: 10000 });
         // Verify if the URL includes 'login.html'
         cy.url().should('include', 'v1/index.html');
+        cy.login('username', 'password')
 
         cy.fixture('/user.json') // Get data from {fixturesFolder}???
 
         // Fill the username field
-        cy.get('[data-test="username"]').clear().type('standard_user');
+        // cy.get('[data-test="username"]').clear().type('standard_user');
         // Fill the password field
-        cy.get('[data-test="password"]').clear().type('secret_sauce');
-
+        // cy.get('[data-test="password"]').clear().type('secret_sauce');
         // Click login button
-        cy.get('#login-button').click();
+        // cy.get('#login-button').click();
 
         cy.get(':nth-child(1) > div.inventory_item_img').then((logo) => {
         });  //.???
@@ -60,14 +59,15 @@ describe('Login using Accepted account', () => {
         cy.get('.btn_action').click();
         cy.url().should('include', '/v1/checkout-step-one.html');
 
+        cy.checkout('firstName', 'lastName')
         // Fill the Firstname field
-        cy.get('[data-test="firstName"]').clear().type('ivan');
+        // cy.get('[data-test="firstName"]').clear().type('ivan');
         // Fill the Lastname field
-        cy.get('[data-test="lastName"]').clear().type('theo');
+        // cy.get('[data-test="lastName"]').clear().type('theo');
         // Fill the Postalcode field
-        cy.get('[data-test="postalCode"]').clear().type('12345');
-
-        cy.get('.btn_primary').click();
+        // cy.get('[data-test="postalCode"]').clear().type('12345');
+        // Click continue button checkbox
+        // cy.get('.btn_primary').click();
         // Verify if the URL step two checkout
         cy.url().should('include', 'v1/checkout-step-two.html');
 
