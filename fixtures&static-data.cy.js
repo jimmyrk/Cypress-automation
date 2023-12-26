@@ -37,7 +37,7 @@ describe('Login using Accepted account', () => {
         cy.get('#login-button').click();
 
         cy.get(':nth-child(1) > div.inventory_item_img').then((logo) => {
-        });  //.???
+        });  //.??
 
         // Click Add to cart button
         cy.get(':nth-child(1) > .pricebar > .btn_primary').click();
